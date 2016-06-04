@@ -1,0 +1,41 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from CategorieWSService WSDL service -->
+
+  <service name="CategorieWS" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://WS"/>
+      <parameter name="wsdlServiceElement" value="CategorieWSService"/>
+      <parameter name="schemaQualified" value="http://WS"/>
+      <parameter name="wsdlServicePort" value="CategorieWS"/>
+      <parameter name="className" value="WS.CategorieWSSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="CategorieWS"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="modifier" qname="operNS:modifier" xmlns:operNS="http://WS" returnQName="retNS:modifierReturn" xmlns:retNS="http://WS" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://WS" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:nom" xmlns:pns="http://WS" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="creer" qname="operNS:creer" xmlns:operNS="http://WS" returnQName="retNS:creerReturn" xmlns:retNS="http://WS" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:nom" xmlns:pns="http://WS" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="supprimer" qname="operNS:supprimer" xmlns:operNS="http://WS" returnQName="retNS:supprimerReturn" xmlns:retNS="http://WS" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:nom" xmlns:pns="http://WS" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="rechercheParNom" qname="operNS:rechercheParNom" xmlns:operNS="http://WS" returnQName="retNS:rechercheParNomReturn" xmlns:retNS="http://WS" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:nom" xmlns:pns="http://WS" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="lister" qname="operNS:lister" xmlns:operNS="http://WS" returnQName="retNS:listerReturn" xmlns:retNS="http://WS" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <parameter name="allowedMethods" value="lister supprimer modifier rechercheParNom creer"/>
+
+  </service>
+</deployment>

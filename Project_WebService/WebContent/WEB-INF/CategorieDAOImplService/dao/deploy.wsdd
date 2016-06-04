@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from CategorieDAOImplService WSDL service -->
+
+  <service name="CategorieDAOImpl" provider="java:RPC" style="document" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://dao"/>
+      <parameter name="wsdlServiceElement" value="CategorieDAOImplService"/>
+      <parameter name="schemaQualified" value="http://dao,http://beans"/>
+      <parameter name="wsdlServicePort" value="CategorieDAOImpl"/>
+      <parameter name="className" value="dao.CategorieDAOImpl"/>
+      <parameter name="wsdlPortType" value="CategorieDAOImpl"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://dao" name="modifier" qname="operNS:modifier" soapAction="">
+        <parameter xmlns:pns="http://dao" xmlns:tns="http://beans" qname="pns:Categorie" type="tns:Categorie"/>
+        <fault xmlns:fns="http://dao" xmlns:tns="http://www.w3.org/2001/XMLSchema" name="DAOException" qname="fns:fault" class="dao.DAOException" type="tns:anyType"/>
+      </operation>
+      <operation xmlns:operNS="http://dao" xmlns:retNS="http://dao" xmlns:rtns="http://dao" xmlns:tns="http://dao" name="lister" qname="operNS:lister" returnQName="retNS:listerReturn" returnType="rtns:ArrayOf_xsd_anyType" returnItemQName="tns:item" soapAction="">
+        <fault xmlns:tns="http://www.w3.org/2001/XMLSchema" xmlns:fns="http://dao" name="DAOException" qname="fns:fault" class="dao.DAOException" type="tns:anyType"/>
+      </operation>
+      <operation xmlns:operNS="http://dao" name="creer" qname="operNS:creer" soapAction="">
+        <parameter xmlns:pns="http://dao" xmlns:tns="http://beans" qname="pns:Categorie" type="tns:Categorie"/>
+        <fault xmlns:fns="http://dao" xmlns:tns="http://www.w3.org/2001/XMLSchema" name="DAOException" qname="fns:fault" class="dao.DAOException" type="tns:anyType"/>
+      </operation>
+      <operation xmlns:operNS="http://dao" xmlns:retNS="http://dao" xmlns:rtns="http://beans" name="trouver_ByID" qname="operNS:trouver_ByID" returnQName="retNS:trouver_ByIDReturn" returnType="rtns:Categorie" soapAction="">
+        <parameter xmlns:pns="http://dao" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:int"/>
+        <fault xmlns:fns="http://dao" xmlns:tns="http://www.w3.org/2001/XMLSchema" name="DAOException" qname="fns:fault" class="dao.DAOException" type="tns:anyType"/>
+      </operation>
+      <operation xmlns:operNS="http://dao" xmlns:retNS="http://dao" xmlns:rtns="http://beans" name="trouver_ByNom" qname="operNS:trouver_ByNom" returnQName="retNS:trouver_ByNomReturn" returnType="rtns:Categorie" soapAction="">
+        <parameter xmlns:pns="http://dao" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:nom" type="tns:string"/>
+        <fault xmlns:fns="http://dao" xmlns:tns="http://www.w3.org/2001/XMLSchema" name="DAOException" qname="fns:fault" class="dao.DAOException" type="tns:anyType"/>
+      </operation>
+      <operation xmlns:operNS="http://dao" name="supprimer" qname="operNS:supprimer" soapAction="">
+        <parameter xmlns:pns="http://dao" xmlns:tns="http://beans" qname="pns:Categorie" type="tns:Categorie"/>
+        <fault xmlns:fns="http://dao" xmlns:tns="http://www.w3.org/2001/XMLSchema" name="DAOException" qname="fns:fault" class="dao.DAOException" type="tns:anyType"/>
+      </operation>
+      <parameter name="allowedMethods" value="lister trouver_ByNom supprimer modifier trouver_ByID creer"/>
+
+      <typeMapping xmlns:ns="http://dao" qname="ns:&gt;lister" type="java:dao.Lister" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://dao" qname="ns:&gt;supprimer" type="java:dao.Supprimer" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://dao" qname="ns:&gt;trouver_ByID" type="java:dao.Trouver_ByID" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://dao" qname="ns:&gt;modifierResponse" type="java:dao.ModifierResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://dao" qname="ns:&gt;supprimerResponse" type="java:dao.SupprimerResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <arrayMapping xmlns:ns="http://dao" xmlns:cmp-ns="http://www.w3.org/2001/XMLSchema" qname="ns:ArrayOf_xsd_anyType" type="java:java.lang.Object[]" innerType="cmp-ns:anyType" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://dao" qname="ns:&gt;listerResponse" type="java:dao.ListerResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://dao" qname="ns:&gt;creer" type="java:dao.Creer" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://beans" qname="ns:Categorie" type="java:beans.Categorie" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://dao" qname="ns:&gt;modifier" type="java:dao.Modifier" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://dao" qname="ns:&gt;trouver_ByIDResponse" type="java:dao.Trouver_ByIDResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://dao" qname="ns:&gt;creerResponse" type="java:dao.CreerResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://dao" qname="ns:&gt;trouver_ByNom" type="java:dao.Trouver_ByNom" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://dao" qname="ns:&gt;trouver_ByNomResponse" type="java:dao.Trouver_ByNomResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>

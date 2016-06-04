@@ -1,0 +1,66 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from MyWSService WSDL service -->
+
+  <service name="MyWS" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://WS"/>
+      <parameter name="wsdlServiceElement" value="MyWSService"/>
+      <parameter name="schemaQualified" value="http://WS"/>
+      <parameter name="wsdlServicePort" value="MyWS"/>
+      <parameter name="className" value="WS.MyWSSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="MyWS"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="creerAnnonce" qname="operNS:creerAnnonce" xmlns:operNS="http://WS" returnQName="retNS:creerAnnonceReturn" xmlns:retNS="http://WS" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:nom" xmlns:pns="http://WS" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:tel" xmlns:pns="http://WS" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:ad_rue" xmlns:pns="http://WS" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:ad_ville" xmlns:pns="http://WS" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:ad_cp" xmlns:pns="http://WS" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:nomCategorie" xmlns:pns="http://WS" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="listerCategorie" qname="operNS:listerCategorie" xmlns:operNS="http://WS" returnQName="retNS:listerCategorieReturn" xmlns:retNS="http://WS" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="supprimerAnnonce" qname="operNS:supprimerAnnonce" xmlns:operNS="http://WS" returnQName="retNS:supprimerAnnonceReturn" xmlns:retNS="http://WS" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://WS" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="creerCategorie" qname="operNS:creerCategorie" xmlns:operNS="http://WS" returnQName="retNS:creerCategorieReturn" xmlns:retNS="http://WS" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:nom" xmlns:pns="http://WS" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="modifierAnnonce" qname="operNS:modifierAnnonce" xmlns:operNS="http://WS" returnQName="retNS:modifierAnnonceReturn" xmlns:retNS="http://WS" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:nom" xmlns:pns="http://WS" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:tel" xmlns:pns="http://WS" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:ad_rue" xmlns:pns="http://WS" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:ad_ville" xmlns:pns="http://WS" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:ad_cp" xmlns:pns="http://WS" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:nomCategorie" xmlns:pns="http://WS" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="supprimerCategorie" qname="operNS:supprimerCategorie" xmlns:operNS="http://WS" returnQName="retNS:supprimerCategorieReturn" xmlns:retNS="http://WS" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://WS" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="modifierCategorie" qname="operNS:modifierCategorie" xmlns:operNS="http://WS" returnQName="retNS:modifierCategorieReturn" xmlns:retNS="http://WS" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://WS" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:nom" xmlns:pns="http://WS" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="rechercheParNomCategorie" qname="operNS:rechercheParNomCategorie" xmlns:operNS="http://WS" returnQName="retNS:rechercheParNomCategorieReturn" xmlns:retNS="http://WS" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:nom" xmlns:pns="http://WS" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="rechercheParNomAnnonce" qname="operNS:rechercheParNomAnnonce" xmlns:operNS="http://WS" returnQName="retNS:rechercheParNomAnnonceReturn" xmlns:retNS="http://WS" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:nom" xmlns:pns="http://WS" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="listerAnnonceOfCat" qname="operNS:listerAnnonceOfCat" xmlns:operNS="http://WS" returnQName="retNS:listerAnnonceOfCatReturn" xmlns:retNS="http://WS" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:idcat" xmlns:pns="http://WS" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="listerAnnonceOfCat supprimerCategorie listerCategorie modifierCategorie supprimerAnnonce rechercheParNomCategorie creerAnnonce modifierAnnonce rechercheParNomAnnonce creerCategorie"/>
+
+  </service>
+</deployment>
