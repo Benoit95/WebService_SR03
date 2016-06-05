@@ -10,29 +10,11 @@
       <parameter name="className" value="WS.MyWS"/>
       <parameter name="wsdlPortType" value="MyWS"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation xmlns:operNS="http://WS" xmlns:retNS="http://WS" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="creerAnnonce" qname="operNS:creerAnnonce" returnQName="retNS:creerAnnonceReturn" returnType="rtns:string" soapAction="">
+      <operation xmlns:operNS="http://WS" xmlns:retNS="http://WS" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="listerAnnonceOfCat" qname="operNS:listerAnnonceOfCat" returnQName="retNS:listerAnnonceOfCatReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://WS" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:idcat" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://WS" xmlns:retNS="http://WS" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="rechercheParNomAnnonce" qname="operNS:rechercheParNomAnnonce" returnQName="retNS:rechercheParNomAnnonceReturn" returnType="rtns:string" soapAction="">
         <parameter xmlns:pns="http://WS" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:nom" type="tns:string"/>
-        <parameter xmlns:pns="http://WS" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:tel" type="tns:string"/>
-        <parameter xmlns:pns="http://WS" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ad_rue" type="tns:string"/>
-        <parameter xmlns:pns="http://WS" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ad_ville" type="tns:string"/>
-        <parameter xmlns:pns="http://WS" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ad_cp" type="tns:string"/>
-        <parameter xmlns:pns="http://WS" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:nomCategorie" type="tns:string"/>
-      </operation>
-      <operation xmlns:operNS="http://WS" xmlns:retNS="http://WS" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="listerCategorie" qname="operNS:listerCategorie" returnQName="retNS:listerCategorieReturn" returnType="rtns:string" soapAction="">
-      </operation>
-      <operation xmlns:operNS="http://WS" xmlns:retNS="http://WS" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="supprimerAnnonce" qname="operNS:supprimerAnnonce" returnQName="retNS:supprimerAnnonceReturn" returnType="rtns:string" soapAction="">
-        <parameter xmlns:pns="http://WS" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:int"/>
-      </operation>
-      <operation xmlns:operNS="http://WS" xmlns:retNS="http://WS" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="creerCategorie" qname="operNS:creerCategorie" returnQName="retNS:creerCategorieReturn" returnType="rtns:string" soapAction="">
-        <parameter xmlns:pns="http://WS" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:nom" type="tns:string"/>
-      </operation>
-      <operation xmlns:operNS="http://WS" xmlns:retNS="http://WS" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="modifierAnnonce" qname="operNS:modifierAnnonce" returnQName="retNS:modifierAnnonceReturn" returnType="rtns:string" soapAction="">
-        <parameter xmlns:pns="http://WS" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:nom" type="tns:string"/>
-        <parameter xmlns:pns="http://WS" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:tel" type="tns:string"/>
-        <parameter xmlns:pns="http://WS" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ad_rue" type="tns:string"/>
-        <parameter xmlns:pns="http://WS" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ad_ville" type="tns:string"/>
-        <parameter xmlns:pns="http://WS" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ad_cp" type="tns:string"/>
-        <parameter xmlns:pns="http://WS" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:nomCategorie" type="tns:string"/>
       </operation>
       <operation xmlns:operNS="http://WS" xmlns:retNS="http://WS" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="supprimerCategorie" qname="operNS:supprimerCategorie" returnQName="retNS:supprimerCategorieReturn" returnType="rtns:string" soapAction="">
         <parameter xmlns:pns="http://WS" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:int"/>
@@ -44,13 +26,31 @@
       <operation xmlns:operNS="http://WS" xmlns:retNS="http://WS" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="rechercheParNomCategorie" qname="operNS:rechercheParNomCategorie" returnQName="retNS:rechercheParNomCategorieReturn" returnType="rtns:string" soapAction="">
         <parameter xmlns:pns="http://WS" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:nom" type="tns:string"/>
       </operation>
-      <operation xmlns:operNS="http://WS" xmlns:retNS="http://WS" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="rechercheParNomAnnonce" qname="operNS:rechercheParNomAnnonce" returnQName="retNS:rechercheParNomAnnonceReturn" returnType="rtns:string" soapAction="">
+      <operation xmlns:operNS="http://WS" xmlns:retNS="http://WS" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="creerCategorie" qname="operNS:creerCategorie" returnQName="retNS:creerCategorieReturn" returnType="rtns:string" soapAction="">
         <parameter xmlns:pns="http://WS" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:nom" type="tns:string"/>
       </operation>
-      <operation xmlns:operNS="http://WS" xmlns:retNS="http://WS" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="listerAnnonceOfCat" qname="operNS:listerAnnonceOfCat" returnQName="retNS:listerAnnonceOfCatReturn" returnType="rtns:string" soapAction="">
-        <parameter xmlns:pns="http://WS" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:idcat" type="tns:int"/>
+      <operation xmlns:operNS="http://WS" xmlns:retNS="http://WS" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="listerCategorie" qname="operNS:listerCategorie" returnQName="retNS:listerCategorieReturn" returnType="rtns:string" soapAction="">
       </operation>
-      <parameter name="allowedMethods" value="listerAnnonceOfCat supprimerCategorie listerCategorie modifierCategorie supprimerAnnonce rechercheParNomCategorie creerAnnonce modifierAnnonce rechercheParNomAnnonce creerCategorie"/>
+      <operation xmlns:operNS="http://WS" xmlns:retNS="http://WS" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="supprimerAnnonce" qname="operNS:supprimerAnnonce" returnQName="retNS:supprimerAnnonceReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://WS" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://WS" xmlns:retNS="http://WS" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="modifierAnnonce" qname="operNS:modifierAnnonce" returnQName="retNS:modifierAnnonceReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://WS" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:nom" type="tns:string"/>
+        <parameter xmlns:pns="http://WS" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:tel" type="tns:string"/>
+        <parameter xmlns:pns="http://WS" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ad_rue" type="tns:string"/>
+        <parameter xmlns:pns="http://WS" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ad_ville" type="tns:string"/>
+        <parameter xmlns:pns="http://WS" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ad_cp" type="tns:string"/>
+        <parameter xmlns:pns="http://WS" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:idCategorie" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://WS" xmlns:retNS="http://WS" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="creerAnnonce" qname="operNS:creerAnnonce" returnQName="retNS:creerAnnonceReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://WS" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:nom" type="tns:string"/>
+        <parameter xmlns:pns="http://WS" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:tel" type="tns:string"/>
+        <parameter xmlns:pns="http://WS" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ad_rue" type="tns:string"/>
+        <parameter xmlns:pns="http://WS" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ad_ville" type="tns:string"/>
+        <parameter xmlns:pns="http://WS" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ad_cp" type="tns:string"/>
+        <parameter xmlns:pns="http://WS" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:nomCategorie" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="listerAnnonceOfCat supprimerCategorie listerCategorie modifierCategorie rechercheParNomCategorie supprimerAnnonce rechercheParNomAnnonce modifierAnnonce creerAnnonce creerCategorie"/>
 
   </service>
 </deployment>

@@ -16,7 +16,8 @@ public class listeAnnonce extends HttpServlet {
 	public static final String AFFICHAGE_GET    = "/WEB-INF/listeAnnonce.jsp";
 	public static final String AFFICHAGE_LIST_Categorie    = "listeCategorie";
 
-	public static final String CATEGORIE_ID    ="categorieID";
+	public static final String CATEGORIE_ID    = "categorieID";
+	public static final String CATEGORIE_NOM   = "categorieNom";
 	public static final String ATT_RESULTAT = "resultat";
 	
 	private MyWSProxy ws = new MyWSProxy();

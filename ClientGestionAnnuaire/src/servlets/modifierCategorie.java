@@ -13,7 +13,7 @@ public class modifierCategorie extends HttpServlet {
 	public static final String AFFICHAGE_GET    = "/WEB-INF/modifierCategorie.jsp";
 	public static final String AFFICHAGE_POST   = "listeCategorie";
 	
-	public static final String CATEGORIE_ID    ="categorieID";
+	public static final String CATEGORIE_ID    = "categorieID";
 	public static final String CHAMP_NOM	= "nom";
 	
 	private MyWSProxy ws = new MyWSProxy();

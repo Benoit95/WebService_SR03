@@ -44,34 +44,16 @@ public class MyWSProxy implements WS.MyWS {
     return myWS;
   }
   
-  public java.lang.String creerAnnonce(java.lang.String nom, java.lang.String tel, java.lang.String ad_rue, java.lang.String ad_ville, java.lang.String ad_cp, java.lang.String nomCategorie) throws java.rmi.RemoteException{
+  public java.lang.String listerAnnonceOfCat(int idcat) throws java.rmi.RemoteException{
     if (myWS == null)
       _initMyWSProxy();
-    return myWS.creerAnnonce(nom, tel, ad_rue, ad_ville, ad_cp, nomCategorie);
+    return myWS.listerAnnonceOfCat(idcat);
   }
   
-  public java.lang.String listerCategorie() throws java.rmi.RemoteException{
+  public java.lang.String rechercheParNomAnnonce(java.lang.String nom) throws java.rmi.RemoteException{
     if (myWS == null)
       _initMyWSProxy();
-    return myWS.listerCategorie();
-  }
-  
-  public java.lang.String supprimerAnnonce(int id) throws java.rmi.RemoteException{
-    if (myWS == null)
-      _initMyWSProxy();
-    return myWS.supprimerAnnonce(id);
-  }
-  
-  public java.lang.String creerCategorie(java.lang.String nom) throws java.rmi.RemoteException{
-    if (myWS == null)
-      _initMyWSProxy();
-    return myWS.creerCategorie(nom);
-  }
-  
-  public java.lang.String modifierAnnonce(java.lang.String nom, java.lang.String tel, java.lang.String ad_rue, java.lang.String ad_ville, java.lang.String ad_cp, java.lang.String nomCategorie) throws java.rmi.RemoteException{
-    if (myWS == null)
-      _initMyWSProxy();
-    return myWS.modifierAnnonce(nom, tel, ad_rue, ad_ville, ad_cp, nomCategorie);
+    return myWS.rechercheParNomAnnonce(nom);
   }
   
   public java.lang.String supprimerCategorie(int id) throws java.rmi.RemoteException{
@@ -92,16 +74,34 @@ public class MyWSProxy implements WS.MyWS {
     return myWS.rechercheParNomCategorie(nom);
   }
   
-  public java.lang.String rechercheParNomAnnonce(java.lang.String nom) throws java.rmi.RemoteException{
+  public java.lang.String creerCategorie(java.lang.String nom) throws java.rmi.RemoteException{
     if (myWS == null)
       _initMyWSProxy();
-    return myWS.rechercheParNomAnnonce(nom);
+    return myWS.creerCategorie(nom);
   }
   
-  public java.lang.String listerAnnonceOfCat(int idcat) throws java.rmi.RemoteException{
+  public java.lang.String listerCategorie() throws java.rmi.RemoteException{
     if (myWS == null)
       _initMyWSProxy();
-    return myWS.listerAnnonceOfCat(idcat);
+    return myWS.listerCategorie();
+  }
+  
+  public java.lang.String supprimerAnnonce(int id) throws java.rmi.RemoteException{
+    if (myWS == null)
+      _initMyWSProxy();
+    return myWS.supprimerAnnonce(id);
+  }
+  
+  public java.lang.String modifierAnnonce(java.lang.String nom, java.lang.String tel, java.lang.String ad_rue, java.lang.String ad_ville, java.lang.String ad_cp, int idCategorie) throws java.rmi.RemoteException{
+    if (myWS == null)
+      _initMyWSProxy();
+    return myWS.modifierAnnonce(nom, tel, ad_rue, ad_ville, ad_cp, idCategorie);
+  }
+  
+  public java.lang.String creerAnnonce(java.lang.String nom, java.lang.String tel, java.lang.String ad_rue, java.lang.String ad_ville, java.lang.String ad_cp, java.lang.String nomCategorie) throws java.rmi.RemoteException{
+    if (myWS == null)
+      _initMyWSProxy();
+    return myWS.creerAnnonce(nom, tel, ad_rue, ad_ville, ad_cp, nomCategorie);
   }
   
   

@@ -60,7 +60,7 @@
                
                <%-- Lien vers les servlets de gestions--%>
                <td class="action">
-                   <a href="<c:url value="modifierAnnonce"><c:param name="annonceID" value="${ID}"/></c:url>">modifier</a>
+                   <a href="<c:url value="modifierAnnonce"><c:param name="annonceID" value="${ID}"/><c:param name="categorieID" value="${Id_Categorie}"/></c:url>">modifier</a>
                </td>
                <td class="action">
                    <a href="<c:url value="supprimerAnnonce"><c:param name="annonceID" value="${ID}" /></c:url>">X</a>

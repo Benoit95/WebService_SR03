@@ -57,46 +57,46 @@
   <ns1:parameter name="wsdlServiceElement" value="CategorieWSService"/>
  </ns1:service>
  <ns1:service name="MyWS" provider="java:RPC" style="wrapped" use="literal">
-  <ns1:operation name="creerAnnonce" qname="ns6:creerAnnonce" returnQName="ns6:creerAnnonceReturn" returnType="xsd:string" soapAction="" xmlns:ns6="http://WS" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns6:nom" type="xsd:string"/>
-   <ns1:parameter qname="ns6:tel" type="xsd:string"/>
-   <ns1:parameter qname="ns6:ad_rue" type="xsd:string"/>
-   <ns1:parameter qname="ns6:ad_ville" type="xsd:string"/>
-   <ns1:parameter qname="ns6:ad_cp" type="xsd:string"/>
-   <ns1:parameter qname="ns6:nomCategorie" type="xsd:string"/>
+  <ns1:operation name="listerAnnonceOfCat" qname="ns6:listerAnnonceOfCat" returnQName="ns6:listerAnnonceOfCatReturn" returnType="xsd:string" soapAction="" xmlns:ns6="http://WS" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns6:idcat" type="xsd:int"/>
   </ns1:operation>
-  <ns1:operation name="listerCategorie" qname="ns7:listerCategorie" returnQName="ns7:listerCategorieReturn" returnType="xsd:string" soapAction="" xmlns:ns7="http://WS" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-  <ns1:operation name="supprimerAnnonce" qname="ns8:supprimerAnnonce" returnQName="ns8:supprimerAnnonceReturn" returnType="xsd:string" soapAction="" xmlns:ns8="http://WS" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ns1:operation name="rechercheParNomAnnonce" qname="ns7:rechercheParNomAnnonce" returnQName="ns7:rechercheParNomAnnonceReturn" returnType="xsd:string" soapAction="" xmlns:ns7="http://WS" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns7:nom" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="supprimerCategorie" qname="ns8:supprimerCategorie" returnQName="ns8:supprimerCategorieReturn" returnType="xsd:string" soapAction="" xmlns:ns8="http://WS" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <ns1:parameter qname="ns8:id" type="xsd:int"/>
   </ns1:operation>
-  <ns1:operation name="creerCategorie" qname="ns9:creerCategorie" returnQName="ns9:creerCategorieReturn" returnType="xsd:string" soapAction="" xmlns:ns9="http://WS" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ns1:operation name="modifierCategorie" qname="ns9:modifierCategorie" returnQName="ns9:modifierCategorieReturn" returnType="xsd:string" soapAction="" xmlns:ns9="http://WS" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns9:id" type="xsd:int"/>
    <ns1:parameter qname="ns9:nom" type="xsd:string"/>
   </ns1:operation>
-  <ns1:operation name="modifierAnnonce" qname="ns10:modifierAnnonce" returnQName="ns10:modifierAnnonceReturn" returnType="xsd:string" soapAction="" xmlns:ns10="http://WS" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ns1:operation name="rechercheParNomCategorie" qname="ns10:rechercheParNomCategorie" returnQName="ns10:rechercheParNomCategorieReturn" returnType="xsd:string" soapAction="" xmlns:ns10="http://WS" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <ns1:parameter qname="ns10:nom" type="xsd:string"/>
-   <ns1:parameter qname="ns10:tel" type="xsd:string"/>
-   <ns1:parameter qname="ns10:ad_rue" type="xsd:string"/>
-   <ns1:parameter qname="ns10:ad_ville" type="xsd:string"/>
-   <ns1:parameter qname="ns10:ad_cp" type="xsd:string"/>
-   <ns1:parameter qname="ns10:nomCategorie" type="xsd:string"/>
   </ns1:operation>
-  <ns1:operation name="supprimerCategorie" qname="ns11:supprimerCategorie" returnQName="ns11:supprimerCategorieReturn" returnType="xsd:string" soapAction="" xmlns:ns11="http://WS" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns11:id" type="xsd:int"/>
+  <ns1:operation name="creerCategorie" qname="ns11:creerCategorie" returnQName="ns11:creerCategorieReturn" returnType="xsd:string" soapAction="" xmlns:ns11="http://WS" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns11:nom" type="xsd:string"/>
   </ns1:operation>
-  <ns1:operation name="modifierCategorie" qname="ns12:modifierCategorie" returnQName="ns12:modifierCategorieReturn" returnType="xsd:string" soapAction="" xmlns:ns12="http://WS" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns12:id" type="xsd:int"/>
-   <ns1:parameter qname="ns12:nom" type="xsd:string"/>
+  <ns1:operation name="listerCategorie" qname="ns12:listerCategorie" returnQName="ns12:listerCategorieReturn" returnType="xsd:string" soapAction="" xmlns:ns12="http://WS" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="supprimerAnnonce" qname="ns13:supprimerAnnonce" returnQName="ns13:supprimerAnnonceReturn" returnType="xsd:string" soapAction="" xmlns:ns13="http://WS" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns13:id" type="xsd:int"/>
   </ns1:operation>
-  <ns1:operation name="rechercheParNomCategorie" qname="ns13:rechercheParNomCategorie" returnQName="ns13:rechercheParNomCategorieReturn" returnType="xsd:string" soapAction="" xmlns:ns13="http://WS" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns13:nom" type="xsd:string"/>
-  </ns1:operation>
-  <ns1:operation name="rechercheParNomAnnonce" qname="ns14:rechercheParNomAnnonce" returnQName="ns14:rechercheParNomAnnonceReturn" returnType="xsd:string" soapAction="" xmlns:ns14="http://WS" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ns1:operation name="modifierAnnonce" qname="ns14:modifierAnnonce" returnQName="ns14:modifierAnnonceReturn" returnType="xsd:string" soapAction="" xmlns:ns14="http://WS" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <ns1:parameter qname="ns14:nom" type="xsd:string"/>
+   <ns1:parameter qname="ns14:tel" type="xsd:string"/>
+   <ns1:parameter qname="ns14:ad_rue" type="xsd:string"/>
+   <ns1:parameter qname="ns14:ad_ville" type="xsd:string"/>
+   <ns1:parameter qname="ns14:ad_cp" type="xsd:string"/>
+   <ns1:parameter qname="ns14:idCategorie" type="xsd:int"/>
   </ns1:operation>
-  <ns1:operation name="listerAnnonceOfCat" qname="ns15:listerAnnonceOfCat" returnQName="ns15:listerAnnonceOfCatReturn" returnType="xsd:string" soapAction="" xmlns:ns15="http://WS" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns15:idcat" type="xsd:int"/>
+  <ns1:operation name="creerAnnonce" qname="ns15:creerAnnonce" returnQName="ns15:creerAnnonceReturn" returnType="xsd:string" soapAction="" xmlns:ns15="http://WS" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns15:nom" type="xsd:string"/>
+   <ns1:parameter qname="ns15:tel" type="xsd:string"/>
+   <ns1:parameter qname="ns15:ad_rue" type="xsd:string"/>
+   <ns1:parameter qname="ns15:ad_ville" type="xsd:string"/>
+   <ns1:parameter qname="ns15:ad_cp" type="xsd:string"/>
+   <ns1:parameter qname="ns15:nomCategorie" type="xsd:string"/>
   </ns1:operation>
-  <ns1:parameter name="allowedMethods" value="listerAnnonceOfCat supprimerCategorie listerCategorie modifierCategorie supprimerAnnonce rechercheParNomCategorie creerAnnonce modifierAnnonce rechercheParNomAnnonce creerCategorie"/>
+  <ns1:parameter name="allowedMethods" value="listerAnnonceOfCat supprimerCategorie listerCategorie modifierCategorie rechercheParNomCategorie supprimerAnnonce rechercheParNomAnnonce modifierAnnonce creerAnnonce creerCategorie"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="MyWS"/>
   <ns1:parameter name="className" value="WS.MyWS"/>

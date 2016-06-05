@@ -124,10 +124,10 @@ public class MyWS {
 		return "L'annonce"+ nom + " vient d'être rajoutée à la catégorie"+nomCategorie+".";
 	}
 	
-	public String modifierAnnonce(String nom, String tel, String ad_rue, String ad_ville, String ad_cp, String nomCategorie){
+	public String modifierAnnonce(String nom, String tel, String ad_rue, String ad_ville, String ad_cp, int idCategorie){
 		// On créé un objet annonce contenant tous les champs passés en paramètres.
 		Annonce annonce = new Annonce();
-		Categorie cat = catDAO.trouver_ByNom(nomCategorie);
+		Categorie cat = catDAO.trouver_ByID(idCategorie);
 		
 		// On vérifie que l'annonce a modifier existe.
 		if (anoDAO.trouver_ByNom(nom) == null)
@@ -149,7 +149,7 @@ public class MyWS {
 		// On modifie l'annonce a l'aide du DAO
 		anoDAO.modifier(annonce);
 		
-		return "L'annonce"+ nom + " vient d'être modifiée (catégorie: "+nomCategorie+").";
+		return "L'annonce"+ nom + " vient d'être modifiée (catégorie: "+idCategorie+").";
 	}
 	
 	public String supprimerAnnonce( int id){

@@ -55,6 +55,13 @@
 		<url-pattern>/listeAnnonce</url-pattern>
 	</servlet-mapping>
 
-
+	<servlet>
+		<servlet-name>modifierAnnonce</servlet-name>
+		<servlet-class>servlets.modifierAnnonce</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>modifierAnnonce</servlet-name>
+		<url-pattern>/modifierAnnonce</url-pattern>
+	</servlet-mapping>
 
 </web-app>
